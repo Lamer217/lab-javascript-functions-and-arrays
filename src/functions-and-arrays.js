@@ -38,7 +38,37 @@ function sumNumbers(arr) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sum = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else if (arr.length === 1) {
+    if (typeof arr[0] === 'number') {
+      return arr[0];
+    } else if (typeof arr[0] === 'string') {
+      return arr[0].length;
+    } else if (arr[0] === true) {
+      return 1;
+    } else {
+      return 0;
+    }
+  } else if (arr.includes(typeof 'object')) {
+    throw 'Error';
+  } else {
+    for (const item of arr) {
+      if (typeof item === 'number') {
+        sum += item;
+      } else if (typeof item === 'string') {
+        sum += item.length;
+      } else if (item === true) {
+        sum += 1;
+      } else if (typeof item === 'object' || typeof item === 'function' || typeof item === 'null') {
+        throw 'Error';
+      }
+    }
+    return sum;
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -79,7 +109,25 @@ function averageWordLength(arr) {
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (arr.length <= 0) {
+    return null;
+  } else {
+    let sum = 0;
+    for (const item of arr) {
+      if (typeof item === 'number') {
+        sum += item;
+      } else if (typeof item === 'string') {
+        sum += item.length;
+      } else if (item === true) {
+        sum++;
+      } else if (typeof item === 'object') {
+        throw 'Inoperable type';
+      }
+    }
+    return sum / arr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
