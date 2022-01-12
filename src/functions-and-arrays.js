@@ -63,7 +63,7 @@ function sum(arr) {
       } else if (item === true) {
         sum += 1;
       } else if (typeof item === 'object' || typeof item === 'function' || typeof item === 'null') {
-        throw 'Error';
+        throw new Error("Unsupported data type sir or ma'am");
       }
     }
     return sum;
@@ -120,9 +120,9 @@ function avg(arr) {
       } else if (typeof item === 'string') {
         sum += item.length;
       } else if (item === true) {
-        sum++;
+        ++sum;
       } else if (typeof item === 'object') {
-        throw 'Inoperable type';
+        throw new Error("Unsupported data type sir or ma'am");
       }
     }
     return sum / arr.length;
